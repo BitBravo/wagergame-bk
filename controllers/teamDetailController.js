@@ -168,7 +168,7 @@ class TeamDetailController {
                 playerName: playerName,
                 teamName: teamName,
                 token: `${
-                    config.BASE_URL
+                    config.CONFIRMATION_URL
                   }/${token}`
             }, async (err, str) => {
                 try {

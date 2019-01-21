@@ -11,6 +11,7 @@ const app = express();
 app.use(Cors());
 // app.use(logger("dev"));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(
   "/public/uploads",

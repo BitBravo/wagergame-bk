@@ -8,8 +8,8 @@ module.exports = {
                 host: "smtp.mailtrap.io",
                 port: 2525,
                 auth: {
-                  user: "2931a5ad8eadde",
-                  pass: "9cad0267aa6f29"
+                  user: "ffcfc491ef2f4f",
+                  pass: "ae64261b1b48b0"
                 }
               });
             let mailOptions = {
