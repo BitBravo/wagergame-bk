@@ -33,13 +33,14 @@ app.use(history({
 }));
 app.use(staticFileMiddleware);
 
+let PORT = config.PORT;
+const port = process.env.PORT || PORT;
+app.use("/api", api);
+
 app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/public/index.html'));
 });
 
-let PORT = config.PORT;
-const port = process.env.PORT || PORT;
-app.use("/api", api);
 app
   .listen(port, (req, res) => {
     console.log(`Server listening at ${port}`);
