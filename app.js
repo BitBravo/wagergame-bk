@@ -24,7 +24,7 @@ app.use(
   "/public/uploads",
   express.static(path.join(__dirname, "public/uploads"))
 );
-const staticFileMiddleware = express.static(path.join(__dirname + 'public/'));
+const staticFileMiddleware = express.static(path.join(__dirname + '/public/'));
 
 app.use(staticFileMiddleware);
 app.use(history({
@@ -34,7 +34,7 @@ app.use(history({
 app.use(staticFileMiddleware);
 
 app.get('/', function (req, res) {
-  res.render(path.join(__dirname + 'public/index.html'));
+  res.render(path.join(__dirname + '/public/index.html'));
 });
 
 let PORT = config.PORT;
