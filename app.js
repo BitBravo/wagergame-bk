@@ -24,10 +24,18 @@ app.use(
   "/public/uploads",
   express.static(path.join(__dirname, "public/uploads"))
 );
-app.use(
-  "/",
-  express.static(path.join(__dirname, "public/"))
-);
+const staticFileMiddleware = express.static(path.join(__dirname + 'public/'));
+
+app.use(staticFileMiddleware);
+app.use(history({
+  disableDotRule: true,
+  verbose: true
+}));
+app.use(staticFileMiddleware);
+
+app.get('/', function (req, res) {
+  res.render(path.join(__dirname + 'public/index.html'));
+});
 
 let PORT = config.PORT;
 const port = process.env.PORT || PORT;
