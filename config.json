@@ -1,8 +1,8 @@
 {
   "PORT": 3000,
   "BASE_URL":"localhost://8080",
-  "CONFIRMATION_URL":"/teamconfirmation",
-  "MONGO_CONNECTION": "mongodb://gamer:gamer123@ds137763.mlab.com:37763/game",
+  "CONFIRMATION_URL":"http://localhost:8080/#/teamconfirmation",
+  "MONGO_CONNECTIONnn": "mongodb://gamer:gamer123@ds137763.mlab.com:37763/game",
   "TOKEN_SECRET": "TOKENSECRET321",
-  "MONGO_CONNECTIONnn": "mongodb://localhost/wagergames"
+  "MONGO_CONNECTION": "mongodb://localhost/wagergames"
 }
