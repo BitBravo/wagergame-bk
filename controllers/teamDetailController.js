@@ -167,7 +167,7 @@ class TeamDetailController {
             ejs.renderFile("./emails/sendnvitations.ejs", {
                 playerName: playerName,
                 teamName: teamName,
-                token: `${
+                token: req.get('host') + `${
                     config.CONFIRMATION_URL
                   }/${token}`
             }, async (err, str) => {
