@@ -7,7 +7,14 @@ const mongoose = require("././models/mongoose");
 const config = require("./config.json");
 const api = require("./routes/api");
 const path = require("path");
+const history = require('connect-history-api-fallback');
+
 const app = express();
+
+app.use(history({
+  disableDotRule: true,
+  verbose: true
+}));
 app.use(Cors());
 // app.use(logger("dev"));
 app.use(bodyParser.json());
