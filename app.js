@@ -17,6 +17,10 @@ app.use(
   "/public/uploads",
   express.static(path.join(__dirname, "public/uploads"))
 );
+app.use(
+  "/",
+  express.static(path.join(__dirname, "public/"))
+);
 
 let PORT = config.PORT;
 const port = process.env.PORT || PORT;
