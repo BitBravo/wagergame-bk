@@ -26,16 +26,16 @@ app.use(
 );
 const staticFileMiddleware = express.static(path.join(__dirname + '/public/'));
 
+let PORT = config.PORT;
+const port = process.env.PORT || PORT;
+app.use("/api", api);
+
 app.use(staticFileMiddleware);
 app.use(history({
   disableDotRule: true,
   verbose: true
 }));
 app.use(staticFileMiddleware);
-
-let PORT = config.PORT;
-const port = process.env.PORT || PORT;
-app.use("/api", api);
 
 app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/public/index.html'));
