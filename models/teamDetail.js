@@ -12,22 +12,48 @@ const teamSchema = new Schema({
   teamName: String,
   founder: String,
   location: String,
-  ownersName: [String],
+  ownerName: String,
   manangers: [String],
   players: [],
   pendingPlayers: [String],
   selectedPlayers: [String],
-  upComingEvents: [{
+  upcomingEvents: [{
     eventName: String,
     eventImage: String,
-    eventDate: Date
+    eventDate: Date,
+    eventLink: String,
   }],
+  achievements: [
+    {
+      tournamentName: String,
+      achievementName: String,
+      imgPath: String,
+      imgName: String,
+      dateOfAchievement: Date,
+      venueOfAchievement: String
+    }
+  ],
   matches: [{
     gameName: String,
+    gamePic: String,
+    link: String,
     tournnamentName: String,
     date: Date,
+    team1Logo:String,
+    team2Logo:String,
     firstTeamName: String,
     secondTeamName: String
+  }],
+  products: [{
+    productName: String,
+    image: String,
+    price: Number,
+    link: String
+  }],
+  latestNews: [{
+    newsImg: String,
+    title: String,
+    description: String
   }]
 }, {
   timestamps: true
