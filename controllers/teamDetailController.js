@@ -126,6 +126,7 @@ class TeamDetailController {
     async addTeamMember(req, res) {
         try {
             let username = req.body.username;
+            let role = req.body.role;
             let teamId = req.params.teamId;
             let player = await User.findOne({
                 username: username
@@ -161,7 +162,8 @@ class TeamDetailController {
             await team.save();
             let body = {
                 teamId: teamId,
-                playerId: playerId
+                playerId: playerId,
+                role: role
             }
             let token = addPlayerMiddleWare.createJWT(body);
             ejs.renderFile("./emails/sendnvitations.ejs", {
@@ -176,7 +178,7 @@ class TeamDetailController {
                         console.log(err);
                         // message: "Could not send email!"
                     };
-                    await nodeMailer.sendMail(playerEmailAddress, "Invitation Reveived!", str);
+                    await nodeMailer.sendMail(playerEmailAddress, "Invitation Received!", str);
                     res.status(200).send({
                         message: "Invitation has been sent successfully"
                     })
@@ -197,6 +199,7 @@ class TeamDetailController {
         let decodedToken = addPlayerMiddleWare.decodeJWT(token);
         let teamId = decodedToken.sub.teamId;
         let playerId = decodedToken.sub.playerId;
+        let role = decodedToken.sub.role;
         let player = await User.findById(playerId);
         if (player == null) {
             return res.status(404).json({
@@ -217,7 +220,7 @@ class TeamDetailController {
             switch (status) {
                 case "Approved":
                     await team.pendingPlayers.splice(index, 1);
-                    team.selectedPlayers.push(playerName);
+                    team.selectedPlayers.push({name: playerName, role: role});
                     await team.save();
                     return res.status(200).json({
                         message: "Congratulations!!! You have been successfully Added into Team..."

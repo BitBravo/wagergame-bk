@@ -16,7 +16,10 @@ const teamSchema = new Schema({
   manangers: [String],
   players: [],
   pendingPlayers: [String],
-  selectedPlayers: [String],
+  selectedPlayers: [{
+    name: String,
+    role: String
+  }],
   upcomingEvents: [{
     eventName: String,
     eventImage: String,
