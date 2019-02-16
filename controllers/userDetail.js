@@ -104,7 +104,7 @@ class UserDetailController {
   async sendEmail (req, res) {
     try {
       let response = await nodemailer.sendMail(
-        'ziaullah623@gmail.com',
+        'vorclothing@gmail.com',
         'How are you',
         'Thanks for reading'
       );

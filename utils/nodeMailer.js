@@ -13,7 +13,7 @@ module.exports = {
         },
       });
       let mailOptions = {
-        from: 'test@gmail.com',
+        from: 'ziaullah@gmail.com',
         to: to,
         subject: subject,
         html: html,
