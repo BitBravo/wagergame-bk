@@ -17,7 +17,6 @@ class TeamDetailController {
             });
             const currentExtraDesc = currentUser.userAdditionalDetail;
             const currentTeams = currentUser.teamDetail;
-
             if (currentExtraDesc.length < 1) {
                 res.status(400).json({
                     message: "You can't Set team, you must have portfolio."
@@ -32,9 +31,11 @@ class TeamDetailController {
             } else {
                 newTeam.user = currentUser;
                 let response = await newTeam.save();
-                await User.findByIdAndUpdate(userId, {
+                await User.findByIdAndUpdate(userId,
+                    {
                     $set: {
                         userHasTeam: true,
+
                         teamDetail: newTeam
                     }
                 });
