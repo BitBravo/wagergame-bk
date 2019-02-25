@@ -51,7 +51,21 @@ const UserDetailSchema = new Schema(
         imgPath: String
       }
     ],
-    sponsors: [String]
+    sponsors: [
+      {
+        name: String,
+        picture: String,
+        link: String
+      }
+    ],
+    brands: [
+      {
+        name: String,
+        picture: String,
+        link: String,
+        price: String,
+      }
+    ]
   },
   {
     timestamps: true
