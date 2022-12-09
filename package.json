@@ -14,7 +14,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "cors": "^2.8.4",
     "ejs": "^2.6.1",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-promise-router": "^3.0.3",
     "joi": "^13.6.0",
     "jsonwebtoken": "^8.3.0",
